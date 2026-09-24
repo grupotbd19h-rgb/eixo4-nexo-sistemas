@@ -42,14 +42,11 @@ São vendidos três planos de assinatura, que se diferenciam pelo porte do clien
 
 A empresa não tem servidores próprios. O produto e os sistemas internos rodam em nuvem contratada como serviço, e o hardware se resume aos notebooks dos funcionários, aos headsets do time comercial e ao link de internet da sede.
 
-Em software, a operação comercial se apoia em quatro fontes de informação, mantidas separadamente:
+Em software, a operação comercial se apoia em três fontes de informação, mantidas separadamente, que serão as origens de dados do projeto:
 
 - **CRM**, com os contatos, as oportunidades e as etapas da venda;
-- **Plataformas de anúncios**, com o quanto foi investido e o que cada campanha trouxe;
-- **Plataforma de cobrança**, com os planos contratados, as faturas, os pagamentos e os cancelamentos;
+- **Plataforma de anúncios**, com o quanto foi investido e o que cada campanha trouxe;
 - **Planilhas do time comercial**, com as metas de cada vendedor, as faixas de comissão e a apuração refeita à mão todo mês.
-
-Destas quatro, três serão as origens de dados do projeto: o CRM, a plataforma de anúncios da Meta e as planilhas do time comercial. A plataforma de cobrança fica fora deste recorte, porque as duas perguntas a responder se resolvem no funil de vendas e no investimento em mídia, sem depender do que foi faturado depois.
 
 Há ainda a base de uso do próprio produto, que registra o que cada cliente faz no sistema. É a maior de todas em quantidade de registros, mas hoje não é aproveitada fora do suporte.
 
@@ -59,7 +56,7 @@ Em serviços de TI, quase tudo é contratado por assinatura, mais o suporte téc
 
 A Nexo recebe cerca de 3.000 oportunidades de venda por mês e fecha negócio com 3% delas. O time comercial atende por ordem de chegada, e não por quem tem mais chance de comprar, simplesmente porque não existe critério para ordenar a fila: 31% do que entra não recebe nenhum contato em 72 horas, justo o período em que o interesse ainda está quente.
 
-Ao mesmo tempo, o custo para conquistar um cliente — somando o investimento em anúncios e a comissão paga na venda — subiu de R$ 900 para R$ 1.450 em dois anos, e a empresa não consegue dizer qual canal ou qual plano está puxando essa alta. O motivo é sempre o mesmo: o investimento em anúncio está numa plataforma, o histórico da negociação está no CRM, o dinheiro que entrou está na cobrança, e nada disso se conversa. Pelo mesmo motivo, a comissão do time comercial é reapurada à mão a cada virada de mês.
+Ao mesmo tempo, o custo para conquistar um cliente — somando o investimento em anúncios e a comissão paga na venda — subiu de R$ 900 para R$ 1.450 em dois anos, e a empresa não consegue dizer qual canal ou qual plano está puxando essa alta. O motivo é sempre o mesmo: o investimento em anúncio está numa plataforma, o histórico da negociação está no CRM, as metas e a comissão estão em planilhas, e nada disso se conversa. Pelo mesmo motivo, a comissão do time comercial é reapurada à mão a cada virada de mês.
 
 O projeto pretende responder a duas perguntas: como ordenar a fila de atendimento por chance de conversão, e quanto custa conquistar um cliente em cada canal e em cada plano. Para isso, os dados do funil serão gerados de forma sintética, reproduzindo só a estrutura do negócio.
 

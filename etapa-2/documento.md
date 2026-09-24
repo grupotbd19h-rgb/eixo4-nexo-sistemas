@@ -42,14 +42,11 @@ São vendidos três planos de assinatura, que se diferenciam pelo porte do clien
 
 A empresa não tem servidores próprios. O produto e os sistemas internos rodam em nuvem contratada como serviço, e o hardware se resume aos notebooks dos funcionários, aos headsets do time comercial e ao link de internet da sede.
 
-Em software, a operação comercial se apoia em quatro fontes de informação, mantidas separadamente:
+Em software, a operação comercial se apoia em três fontes de informação, mantidas separadamente, que serão as origens de dados do projeto:
 
 - **CRM**, com os contatos, as oportunidades e as etapas da venda;
-- **Plataformas de anúncios**, com o quanto foi investido e o que cada campanha trouxe;
-- **Plataforma de cobrança**, com os planos contratados, as faturas, os pagamentos e os cancelamentos;
+- **Plataforma de anúncios**, com o quanto foi investido e o que cada campanha trouxe;
 - **Planilhas do time comercial**, com as metas de cada vendedor, as faixas de comissão e a apuração refeita à mão todo mês.
-
-Destas quatro, três serão as origens de dados do projeto: o CRM, a plataforma de anúncios da Meta e as planilhas do time comercial. O recorte é justificado no capítulo 5.
 
 Há ainda a base de uso do próprio produto, que registra o que cada cliente faz no sistema. É a maior de todas em quantidade de registros, mas hoje não é aproveitada fora do suporte.
 
@@ -59,7 +56,7 @@ Em serviços de TI, quase tudo é contratado por assinatura, mais o suporte téc
 
 A Nexo recebe cerca de 3.000 oportunidades de venda por mês e fecha negócio com 3% delas. O time comercial atende por ordem de chegada, e não por quem tem mais chance de comprar, simplesmente porque não existe critério para ordenar a fila: 31% do que entra não recebe nenhum contato em 72 horas, justo o período em que o interesse ainda está quente.
 
-Ao mesmo tempo, o custo para conquistar um cliente — somando o investimento em anúncios e a comissão paga na venda — subiu de R$ 900 para R$ 1.450 em dois anos, e a empresa não consegue dizer qual canal ou qual plano está puxando essa alta. O motivo é sempre o mesmo: o investimento em anúncio está numa plataforma, o histórico da negociação está no CRM, o dinheiro que entrou está na cobrança, e nada disso se conversa. Pelo mesmo motivo, a comissão do time comercial é reapurada à mão a cada virada de mês.
+Ao mesmo tempo, o custo para conquistar um cliente — somando o investimento em anúncios e a comissão paga na venda — subiu de R$ 900 para R$ 1.450 em dois anos, e a empresa não consegue dizer qual canal ou qual plano está puxando essa alta. O motivo é sempre o mesmo: o investimento em anúncio está numa plataforma, o histórico da negociação está no CRM, as metas e a comissão estão em planilhas, e nada disso se conversa. Pelo mesmo motivo, a comissão do time comercial é reapurada à mão a cada virada de mês.
 
 O projeto pretende responder a duas perguntas: como ordenar a fila de atendimento por chance de conversão, e quanto custa conquistar um cliente em cada canal e em cada plano. Para isso, os dados do funil serão gerados de forma sintética, reproduzindo só a estrutura do negócio.
 
@@ -72,6 +69,8 @@ Do lado da sociedade, o ponto sensível é quem a empresa decide atender primeir
 Na outra direção, a sociedade digital também mexe com a empresa. Mudanças em obrigações fiscais eletrônicas provocam picos de procura por sistemas de gestão, e ela precisa antecipar isso para dimensionar equipe e verba de anúncio. E como depende de plataformas de mídia cujas regras mudam sem aviso, seu custo de aquisição é em parte decidido por terceiros — o que reforça a necessidade de ter medição própria.
 
 # 5 BASES DE DADOS
+
+## 5.1 Origens e Conteúdo
 
 Como a Nexo é fictícia, os dados das três origens foram gerados por um programa em Python, com semente fixa: rodar de novo produz exatamente os mesmos arquivos. A janela é de seis meses, de março a agosto de 2026, com janeiro e fevereiro também simulados para que o funil já chegue cheio em março. Os arquivos reproduzem os números do caso apresentados no capítulo 3: 3.051 oportunidades por mês, 2,99% de conversão de oportunidade em contrato, 30,8% sem nenhum contato em 72 horas e custo de aquisição entre R$ 1.004 e R$ 1.276 ao mês.
 
@@ -88,7 +87,15 @@ Cada origem vem no formato do próprio sistema, e não num formato já pronto pa
 | Planilhas comerciais | regras_bonus | Regras de bônus por papel do time comercial | 6 |
 !Fonte: elaborado pelos autores (2026).
 
-A plataforma de cobrança, quarta fonte descrita no item 2.2, ficou fora deste recorte: as duas perguntas do capítulo 3 se resolvem no funil e no investimento em mídia, sem depender do que foi faturado depois. Isso mantém a etapa no tamanho que o grupo consegue implementar e deixa a receita recebida como extensão natural para as etapas seguintes.
+## 5.2 Ferramenta Utilizada na Geração
+
+Os dados não foram baixados de nenhuma fonte: foram escritos por um programa, e esse programa foi construído com apoio de ferramenta de inteligência artificial generativa. O grupo utilizou o **Claude**, da Anthropic, pelo assistente de linha de comando Claude Code, com o modelo Opus, em **plano pago** — o plano gratuito não dá acesso a essa ferramenta.
+
+O trabalho não partiu de um único comando. Foi conduzido em várias sessões: o grupo escreveu primeiro as regras do negócio e os números do caso, a ferramenta produziu o programa gerador, e cada rodada foi conferida contra os números declarados no capítulo 3, com ajuste do programa quando o resultado divergia. O pedido central, consolidado, foi o seguinte:
+
+> Escreva um programa em Python, com semente fixa, que gere as bases sintéticas de três origens de uma empresa de software de gestão vendido por assinatura: o CRM, com oportunidades percorrendo um funil de nove fases, atendidas por pré-vendedores e vendedores de níveis diferentes; a plataforma de anúncios da Meta, com desempenho diário por campanha; e as planilhas do time comercial, com metas mensais, faixas de comissão e regras de bônus. Cada arquivo deve sair no formato do próprio sistema de origem, e não num formato já pronto para análise: o valor gasto da Meta como texto, a campanha identificada por código numérico, e o CRM guardando apenas a UTM — com 7% dos leads pagos chegando sem UTM e 2% com o marcador de campanha não substituído. A janela é de seis meses, de março a agosto de 2026, com dois meses anteriores simulados para o funil chegar cheio. O resultado precisa reproduzir os números do caso: cerca de 3.000 oportunidades por mês, 3% de conversão de oportunidade em contrato e 31% sem nenhum contato em 72 horas.
+
+O programa resultante está no repositório indicado no capítulo 9, com a semente fixada, de modo que qualquer pessoa pode executá-lo e obter exatamente os mesmos arquivos descritos no Quadro 2.
 
 # 6 MODELAGEM DOS DADOS
 

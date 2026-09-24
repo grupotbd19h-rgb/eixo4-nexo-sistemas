@@ -11,6 +11,9 @@ etapa-2/dash/
 # Arquivos temporários do Word/Office
 ~$*
 
+# Cópia editável para revisão no Word: gerada por gerar_documento.py, não versionada
+*.docx
+
 # Python
 __pycache__/
 *.pyc

@@ -1,0 +1,16 @@
+# Anotações internas, fora do entregável
+quem-sou.md
+projetobigdataanalyticseixo4.md
+
+# Pacote das bases: os CSVs vão soltos, gerados por etapa-2/gerar_bases.py
+etapa-2/dados.rar
+
+# Testes locais, fora do entregável
+etapa-2/dash/
+
+# Arquivos temporários do Word/Office
+~$*
+
+# Python
+__pycache__/
+*.pyc

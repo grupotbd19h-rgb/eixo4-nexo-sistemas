@@ -1,0 +1,7 @@
+papel,regra,valor
+Recuperador,percentual sobre o valor anual do contrato recuperado,0.05
+Gestor,percentual sobre o valor anual vendido pelo time,0.003
+Gestor,peso do caixa no multiplicador,0.5
+Gestor,peso da venda no multiplicador,0.5
+Gestor,trava: atingimento mínimo da meta de venda do time,0.6
+Gestor,trava: caixa mínimo do time,0.75

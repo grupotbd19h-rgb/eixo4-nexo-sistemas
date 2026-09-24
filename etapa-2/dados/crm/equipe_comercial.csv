@@ -1,0 +1,31 @@
+id_colaborador,funcao,tier,pipeline,data_admissao
+GES01,Gestor,,Comercial,2019-08-12
+SDR01,SDR,1,Pré-vendas,2024-04-18
+SDR02,SDR,1,Pré-vendas,2023-06-25
+SDR03,SDR,1,Pré-vendas,2022-01-02
+SDR04,SDR,2,Pré-vendas,2021-12-18
+SDR05,SDR,2,Pré-vendas,2024-11-16
+SDR06,SDR,2,Pré-vendas,2019-08-03
+SDR07,SDR,3,Pré-vendas,2023-10-10
+SDR08,SDR,3,Pré-vendas,2020-05-18
+SDR09,SDR,3,Pré-vendas,2019-08-24
+CLO01,Closer,1,Contas Corporativas,2022-08-09
+CLO02,Closer,1,Contas Corporativas,2025-09-05
+CLO03,Closer,2,Contas Corporativas,2024-01-14
+CLO04,Closer,3,Contas Corporativas,2024-03-17
+CLO05,Closer,1,Pequeno Varejo,2023-11-29
+CLO06,Closer,1,Pequeno Varejo,2024-05-19
+CLO07,Closer,1,Pequeno Varejo,2022-07-07
+CLO08,Closer,1,Pequeno Varejo,2019-11-17
+CLO09,Closer,2,Pequeno Varejo,2024-09-30
+CLO10,Closer,2,Pequeno Varejo,2022-01-30
+CLO11,Closer,2,Pequeno Varejo,2022-06-04
+CLO12,Closer,2,Pequeno Varejo,2021-07-15
+CLO13,Closer,2,Pequeno Varejo,2020-04-01
+CLO14,Closer,3,Pequeno Varejo,2025-05-05
+CLO15,Closer,3,Pequeno Varejo,2024-05-07
+CLO16,Closer,3,Pequeno Varejo,2023-05-29
+CLO17,Closer,3,Pequeno Varejo,2021-10-03
+REC01,Recuperador,,Recuperação,2024-08-18
+REC02,Recuperador,,Recuperação,2022-09-25
+REC03,Recuperador,,Recuperação,2022-01-13

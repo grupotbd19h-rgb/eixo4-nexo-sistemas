@@ -71,14 +71,15 @@ def arquitetura(saida):
     d.text((590, 60), "Nuvem AWS", font=fonte(30, "b"), fill=PRETO)
 
     caixa(d, 260, 600, 400, 520, "Origens de dados\n(simuladas)",
-          "Google Ads\nMeta Ads\nCRM\nCobrança\nPlanilhas comerciais")
+          "Meta Ads\nCRM\nPlanilhas comerciais")
     caixa(d, 1480, 220, 1700, 160, "Orquestração — Apache Airflow",
-          "Docker Compose numa instância Amazon EC2: agenda e dispara ingestão, carga e transformação")
+          "Docker Compose numa Amazon EC2 t4g.small ligada sob demanda: dispara ingestão,\n"
+          "carga e transformação, um dia de referência por execução")
 
     linha_y, w, h = 600, 380, 240
     etapas = [
         (790, "Ingestão", "Python (pandas, boto3)\nem contêiner Docker"),
-        (1240, "Amazon S3", "camada bruta:\narquivos por fonte\ne data de carga"),
+        (1240, "Amazon S3", "camada bruta:\narquivos por fonte\ne data de referência"),
         (1690, "Carga e\ntransformação", "Python + SQL"),
         (2150, "Amazon RDS", "PostgreSQL\nstaging → dw\n(modelo estrela)"),
     ]
@@ -97,20 +98,14 @@ def arquitetura(saida):
 ENTIDADES = {
     "Campanha": (280, 170), "Investimento diário": (280, 560),
     "Oportunidade": (900, 170), "Colaborador": (900, 560), "Meta mensal": (900, 950),
-    "Cliente": (1520, 170), "Assinatura": (1520, 560), "Fatura": (1520, 950),
-    "Cancelamento": (2130, 170), "Plano": (2130, 560), "Pagamento": (2130, 950),
+    "Plano": (1520, 170),
 }
 RELACOES = [  # (entidade A, entidade B, cardinalidade no lado A, no lado B, verbo)
     ("Campanha", "Investimento diário", "1", "N", "registra"),
     ("Campanha", "Oportunidade", "0..1", "N", "origina"),
     ("Oportunidade", "Colaborador", "N", "1", "atendida por"),
     ("Colaborador", "Meta mensal", "1", "N", "recebe"),
-    ("Oportunidade", "Cliente", "1", "0..1", "gera"),
-    ("Cliente", "Assinatura", "1", "N", "contrata"),
-    ("Plano", "Assinatura", "1", "N", "define"),
-    ("Assinatura", "Fatura", "1", "N", "gera"),
-    ("Fatura", "Pagamento", "1", "0..N", "quitada por"),
-    ("Assinatura", "Cancelamento", "1", "0..1", "encerrada por"),
+    ("Plano", "Oportunidade", "1", "0..N", "contratado em"),
 ]
 CAIXA_W, CAIXA_H = 380, 110
 
@@ -122,7 +117,7 @@ def borda(centro, alvo):
 
 
 def modelo_conceitual(saida):
-    img = Image.new("RGB", (2410, 1060), BRANCO)
+    img = Image.new("RGB", (1810, 1060), BRANCO)
     d = ImageDraw.Draw(img)
     fc, fv = fonte(28, "b"), fonte(26, "i")
 

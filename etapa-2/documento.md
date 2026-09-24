@@ -42,12 +42,14 @@ São vendidos três planos de assinatura, que se diferenciam pelo porte do clien
 
 A empresa não tem servidores próprios. O produto e os sistemas internos rodam em nuvem contratada como serviço, e o hardware se resume aos notebooks dos funcionários, aos headsets do time comercial e ao link de internet da sede.
 
-Em software, a operação comercial se apoia em quatro fontes de informação, mantidas separadamente, que serão as origens de dados do projeto:
+Em software, a operação comercial se apoia em quatro fontes de informação, mantidas separadamente:
 
 - **CRM**, com os contatos, as oportunidades e as etapas da venda;
 - **Plataformas de anúncios**, com o quanto foi investido e o que cada campanha trouxe;
 - **Plataforma de cobrança**, com os planos contratados, as faturas, os pagamentos e os cancelamentos;
 - **Planilhas do time comercial**, com as metas de cada vendedor, as faixas de comissão e a apuração refeita à mão todo mês.
+
+Destas quatro, três serão as origens de dados do projeto: o CRM, a plataforma de anúncios da Meta e as planilhas do time comercial. O recorte é justificado no capítulo 5.
 
 Há ainda a base de uso do próprio produto, que registra o que cada cliente faz no sistema. É a maior de todas em quantidade de registros, mas hoje não é aproveitada fora do suporte.
 
@@ -71,25 +73,28 @@ Na outra direção, a sociedade digital também mexe com a empresa. Mudanças em
 
 # 5 BASES DE DADOS
 
-Como a Nexo é fictícia, os dados das quatro origens foram gerados por um programa em Python, com semente fixa: rodar de novo produz exatamente os mesmos arquivos. Eles cobrem 24 meses, de setembro de 2024 a agosto de 2026, e reproduzem os números do caso: cerca de 3.000 oportunidades por mês, 3% de conversão, 31% sem contato em 72 horas, 2.500 clientes ativos e custo de aquisição subindo de cerca de R$ 950 para R$ 1.490.
+Como a Nexo é fictícia, os dados das três origens foram gerados por um programa em Python, com semente fixa: rodar de novo produz exatamente os mesmos arquivos. A janela é de seis meses, de março a agosto de 2026, com janeiro e fevereiro também simulados para que o funil já chegue cheio em março. Os arquivos reproduzem os números do caso apresentados no capítulo 3: 3.051 oportunidades por mês, 2,99% de conversão de oportunidade em contrato, 30,8% sem nenhum contato em 72 horas e custo de aquisição entre R$ 1.004 e R$ 1.276 ao mês.
 
-Cada origem vem no formato do próprio sistema, e não num formato já pronto para análise. O Google Ads informa o custo em milionésimos de real, a Meta informa o valor gasto como texto e o CRM não guarda o código da campanha, só a identificação de origem do link (UTM) — e 6% das oportunidades chegam sem ela. Resolver essas diferenças é justamente o trabalho do processo de integração.
+Cada origem vem no formato do próprio sistema, e não num formato já pronto para análise. A Meta informa o valor gasto como texto e identifica a campanha por um código numérico de quinze dígitos; o CRM não guarda esse código, apenas a identificação de origem do link (UTM). Entre os leads pagos, 6,8% chegam sem UTM alguma e 2,0% chegam com o texto `{{campaign.name}}` literal, um marcador que a plataforma deixou de substituir. As planilhas comerciais, por sua vez, são tabelas digitadas à mão, sem chave que as ligue ao CRM além do código do colaborador. Resolver essas diferenças é justamente o trabalho do processo de integração.
 
 ^Quadro 2 – Bases de dados de origem
 | Origem | Arquivos | Conteúdo | Registros |
 |---|---|---|---|
-| Google Ads | campanhas_desempenho_diario | Impressões, cliques, conversões e custo, por campanha e dia | 2.920 |
-| Meta Ads | insights_campanhas_diario | Impressões, cliques, leads e valor gasto, por campanha e dia | 2.920 |
-| CRM | oportunidades; equipe_comercial | Oportunidades com origem, datas de criação, primeiro contato e fechamento, responsáveis e resultado; cadastro do time comercial | 72.096; 30 |
-| Plataforma de cobrança | planos; clientes; assinaturas; faturas; pagamentos; cancelamentos | Planos contratados, faturas mensais, cada pagamento recebido e os cancelamentos com motivo | 3; 4.686; 4.686; 62.880; 60.862; 2.174 |
-| Planilhas comerciais | metas_mensais; faixas_comissao | Meta mensal de cada vendedor e percentual de comissão por faixa de atingimento | 480; 5 |
+| CRM | oportunidades | Oportunidades com origem, UTM, datas de criação, primeiro contato e fechamento, responsáveis, resultado e plano contratado | 19.280 |
+| CRM | equipe_comercial | Cadastro do time comercial, com função, tier e data de admissão | 30 |
+| Meta Ads | insights_campanhas_diario | Impressões, cliques, leads e valor gasto, por campanha e dia | 920 |
+| Planilhas comerciais | metas_mensais | Meta mensal de cada colaborador, por tipo de meta | 180 |
+| Planilhas comerciais | faixas_comissao | Percentual de comissão por faixa de venda anual, com a trava de caixa | 5 |
+| Planilhas comerciais | regras_bonus | Regras de bônus por papel do time comercial | 6 |
 !Fonte: elaborado pelos autores (2026).
+
+A plataforma de cobrança, quarta fonte descrita no item 2.2, ficou fora deste recorte: as duas perguntas do capítulo 3 se resolvem no funil e no investimento em mídia, sem depender do que foi faturado depois. Isso mantém a etapa no tamanho que o grupo consegue implementar e deixa a receita recebida como extensão natural para as etapas seguintes.
 
 # 6 MODELAGEM DOS DADOS
 
 ## 6.1 Modelo Conceitual
 
-A Figura 1 representa o negócio como conjuntos de entidades e as relações entre eles. Três relações são centrais para o problema. A ligação entre campanha e oportunidade é opcional, porque parte das oportunidades chega sem origem — é por isso que hoje não se sabe o custo de aquisição por canal. A oportunidade é atendida por colaboradores (o pré-vendedor, que faz o primeiro contato, e o vendedor, que fecha), e só a oportunidade ganha gera um cliente. Por fim, cada fatura guarda seus pagamentos, o que permite calcular a comissão tanto sobre a venda assinada quanto sobre o dinheiro efetivamente recebido.
+A Figura 1 representa o negócio como conjuntos de entidades e as relações entre eles. Três relações são centrais para o problema. A ligação entre campanha e oportunidade é opcional, porque parte das oportunidades chega sem origem — é por isso que hoje não se sabe o custo de aquisição por canal. A oportunidade é atendida por colaboradores, o pré-vendedor que faz o primeiro contato e o vendedor que fecha, e cada oportunidade ganha registra o plano contratado e o valor do contrato. Por fim, cada colaborador tem uma meta por mês, o que liga o time comercial às planilhas e permite apurar a comissão sobre o que foi assinado.
 
 ^Figura 1 – Modelo conceitual
 @diagramas/modelo_conceitual.png | 16
@@ -97,22 +102,21 @@ A Figura 1 representa o negócio como conjuntos de entidades e as relações ent
 
 ## 6.2 Modelo do Armazém de Dados
 
-No destino, os dados são organizados em modelo estrela: tabelas de fato, que registram os acontecimentos medidos, cercadas por tabelas de dimensão, que descrevem por quais ângulos esses fatos são analisados (KIMBALL; ROSS, 2013).
+No destino, os dados são organizados em modelo estrela: tabelas de fato, que registram os acontecimentos medidos, cercadas por tabelas de dimensão, que descrevem por quais ângulos esses fatos são analisados (KIMBALL; ROSS, 2013). Os três fatos não são do mesmo tipo, e isso define como cada um é carregado. O fato da oportunidade é um *snapshot* acumulado: a mesma linha guarda as datas de criação, de primeiro contato e de fechamento, e é reescrita conforme a negociação avança. O fato do investimento é transacional diário, uma linha por campanha e dia, que nunca muda depois de gravada. O fato da meta é um *snapshot* periódico, fechado uma vez por mês.
 
 ^Quadro 3 – Tabelas do armazém de dados
 | Tabela | Tipo | Uma linha por | Uso no problema |
 |---|---|---|---|
-| fato_oportunidade | Fato | Oportunidade | Tempo até o primeiro contato e conversão por canal, plano e perfil — base para ordenar a fila |
-| fato_investimento_anuncio | Fato | Campanha por dia | Investimento de Google e Meta numa só tabela — base do custo de aquisição |
-| fato_fatura | Fato | Fatura | Receita faturada e recebida, e atraso |
-| fato_assinatura | Fato | Assinatura | Clientes ativos, plano e cancelamento |
-| fato_meta_vendedor | Fato | Vendedor por mês | Meta contra realizado e faixa de comissão |
+| fato_oportunidade | Fato — *snapshot* acumulado | Oportunidade | Tempo até o primeiro contato e conversão por canal, plano e perfil — base para ordenar a fila |
+| fato_investimento_anuncio | Fato — transacional diário | Campanha por dia | Investimento em mídia por campanha — base do custo de aquisição |
+| fato_meta_vendedor | Fato — *snapshot* periódico | Colaborador por mês | Meta contra realizado e faixa de comissão |
 | dim_data | Dimensão | Dia | Calendário comum a todos os fatos |
 | dim_campanha | Dimensão | Campanha | Plataforma, nome e UTM — liga o anúncio à oportunidade |
 | dim_plano | Dimensão | Plano | Mensalidade e perfil de cliente |
-| dim_colaborador | Dimensão | Colaborador | Função e time |
-| dim_cliente | Dimensão | Cliente | Segmento, porte e estado |
+| dim_colaborador | Dimensão | Colaborador | Função, tier e time |
 !Fonte: elaborado pelos autores (2026).
+
+A dimensão do plano não vem de nenhuma das três origens: é uma tabela de referência, com os três planos do Quadro 1, carregada uma única vez. As demais dimensões são extraídas das origens e mantidas sem histórico de alteração nesta etapa, o que é suficiente porque a janela de dados é de seis meses e nenhum atributo dimensional muda dentro dela.
 
 # 7 ARQUITETURA E INTEGRAÇÃO
 
@@ -121,24 +125,26 @@ No destino, os dados são organizados em modelo estrela: tabelas de fato, que re
 ^Quadro 4 – Componentes da arquitetura
 | Componente | Escolha | Motivo |
 |---|---|---|
-| Nuvem | Amazon Web Services (AWS), região Norte da Virgínia (us-east-1) | A conta nova recebe créditos que cobrem o semestre, e a região é a de menor preço |
+| Nuvem | Amazon Web Services (AWS), pelo laboratório do AWS Academy, região Norte da Virgínia (us-east-1) | O laboratório dá à turma um orçamento fechado e só libera as regiões us-east-1 e us-west-2 |
 | Armazenamento bruto | Amazon S3 | Guarda os arquivos como chegaram, separados por origem e data de carga, o que permite reprocessar |
 | SGBD | PostgreSQL no Amazon RDS | Banco relacional com SQL padrão; backup e atualização ficam a cargo da AWS |
 | Contêineres | Docker e Docker Compose | O mesmo ambiente roda na máquina de cada integrante e na nuvem |
-| Orquestração | Apache Airflow, em contêiner, numa máquina Amazon EC2 | Ferramenta aberta e padrão de mercado; a versão gerenciada da AWS custaria cerca de US$ 212 por mês |
+| Orquestração | Apache Airflow, em contêiner, numa máquina Amazon EC2 t4g.small ligada sob demanda | Ferramenta aberta e padrão de mercado; a versão gerenciada da AWS custaria cerca de US$ 212 por mês, mais de quatro vezes o orçamento inteiro do laboratório |
 | Linguagens e bibliotecas | Python (pandas, boto3, SQLAlchemy) e SQL | Extração e carga em Python; transformação em SQL |
 | Repositório | GitHub | Código do gerador, dos fluxos do Airflow e dos scripts SQL |
 !Fonte: elaborado pelos autores (2026).
 
 ## 7.2 Processo de Integração
 
-O processo, representado na Figura 2, roda uma vez por dia, disparado pelo Airflow:
+O processo, representado na Figura 2, é particionado por dia: cada execução trata um único dia de dados, identificado pela data de referência que o Airflow passa à tarefa. São cinco passos:
 
-1. **Extração:** os arquivos de cada origem são coletados.
-2. **Camada bruta:** cada arquivo é gravado sem alteração no S3, numa pasta com o nome da origem e a data da carga.
-3. **Staging:** os arquivos são carregados em tabelas espelho no PostgreSQL, uma para cada arquivo.
-4. **Transformação:** comandos SQL padronizam unidades e datas (o custo do Google é dividido por um milhão, o valor gasto da Meta vira número), ligam cada oportunidade à campanha pela UTM, calculam o tempo até o primeiro contato e gravam o resultado no modelo estrela.
-5. **Conferência:** a cada carga, o número de registros na origem é comparado com o número gravado no destino.
+1. **Extração:** os registros daquele dia são coletados em cada origem.
+2. **Camada bruta:** o que foi extraído é gravado sem alteração no S3, numa pasta com o nome da origem e a data de referência.
+3. **Staging:** os arquivos são carregados em tabelas espelho no PostgreSQL, uma para cada arquivo de origem.
+4. **Transformação:** comandos SQL padronizam tipos e unidades (o valor gasto da Meta, que vem como texto, torna-se número), ligam cada oportunidade à campanha pela UTM, tratam as oportunidades sem UTM e as que trazem o marcador não substituído, calculam o tempo até o primeiro contato e gravam o resultado no modelo estrela.
+5. **Conferência:** a cada execução, o número de registros lidos na origem é comparado com o número gravado no destino.
+
+Como os dados são sintéticos e a janela é fechada, não existe carga nova chegando todo dia: a execução real é um *backfill*, em que o Airflow roda a mesma tarefa uma vez para cada um dos 184 dias da janela. É por isso que cada passo precisa ser idempotente — reprocessar um dia tem que sobrescrever aquele dia, nunca duplicá-lo. Numa operação contínua, a mesma rotina rodaria uma vez ao dia, sem alteração nenhuma no código.
 
 ^Figura 2 – Arquitetura do processo de integração
 @diagramas/arquitetura.png | 16
@@ -146,33 +152,39 @@ O processo, representado na Figura 2, roda uma vez por dia, disparado pelo Airfl
 
 # 8 CUSTOS
 
-A conta nova da AWS entra no plano gratuito, que dá até US$ 200 em créditos por seis meses e só permite máquinas de uma lista reduzida (AMAZON WEB SERVICES, 2026a). Por isso foram escolhidas uma máquina c7i-flex.large (2 processadores e 4 GB de memória, o mínimo recomendável para o Airflow) e um banco db.t4g.micro, ambos incluídos no plano. O Quadro 5 mostra o custo mensal pelos preços sob demanda da região escolhida (AMAZON WEB SERVICES, 2026b; 2026c).
+O projeto roda no laboratório do AWS Academy, que dá à turma um orçamento fechado de **US$ 50** para todo o semestre. Esse limite é rígido: esgotado o orçamento, a conta é desativada e o trabalho armazenado nela se perde. Não há, portanto, a folga de uma conta comum, em que o estouro apenas passa a ser cobrado. É essa restrição, e não o preço de tabela, que define a arquitetura.
 
-^Quadro 5 – Estimativa de custo mensal na AWS (us-east-1)
-| Serviço | Configuração | Ligado 24 h/dia (US$) | Máquina ligada 12 h/dia (US$) |
-|---|---|---|---|
-| Amazon EC2 | c7i-flex.large, US$ 0,0848/h | 61,90 | 30,95 |
-| Disco da máquina (EBS gp3) | 30 GB, US$ 0,08/GB | 2,40 | 2,40 |
-| Amazon RDS for PostgreSQL | db.t4g.micro, US$ 0,016/h | 11,68 | 11,68 |
-| Armazenamento do banco | 20 GB, US$ 0,115/GB | 2,30 | 2,30 |
-| Endereço IP público | US$ 0,005/h | 3,65 | 3,65 |
-| Amazon S3 | Menos de 1 GB, US$ 0,023/GB | 0,02 | 0,02 |
-| **Total** | | **81,95** | **51,00** |
+O volume de dados é irrelevante para o custo — os seis arquivos de origem somam menos de 6 MB. O que custa é o tempo em que as máquinas ficam ligadas. Por isso nem a EC2 nem o banco ficam de pé: ambos são iniciados quando há trabalho a fazer e desligados em seguida. O Quadro 5 compara esse regime com o de máquinas sempre ligadas, pelos preços sob demanda da região escolhida (AMAZON WEB SERVICES, 2026a; 2026b).
+
+^Quadro 5 – Consumo mensal estimado no laboratório (us-east-1)
+| Serviço | Configuração | Preço | Sob demanda, ~10 h/mês (US$) | Sempre ligado (US$) |
+|---|---|---|---|---|
+| Amazon EC2 | t4g.small, 2 processadores e 2 GB | US$ 0,0168/h | 0,17 | 12,26 |
+| Amazon RDS for PostgreSQL | db.t4g.micro | US$ 0,016/h | 0,16 | 11,68 |
+| Endereço IP público | cobrado enquanto a máquina está ligada | US$ 0,005/h | 0,05 | 3,65 |
+| Disco da máquina (EBS gp3) | 10 GB | US$ 0,08/GB ao mês | 0,80 | 0,80 |
+| Armazenamento do banco | 20 GB | US$ 0,115/GB ao mês | 2,30 | 2,30 |
+| Amazon S3 | menos de 1 GB | US$ 0,023/GB ao mês | 0,02 | 0,02 |
+| **Total por mês** | | | **3,50** | **30,71** |
 !Fonte: elaborado pelos autores com base nos preços da AWS (2026).
 
-Com a máquina ligada o dia inteiro, o período de setembro a dezembro custaria cerca de US$ 225, acima dos créditos. Com a máquina ligada só 12 horas por dia — o suficiente para a carga diária e para o trabalho do grupo —, o custo cai para cerca de US$ 140. Para não haver surpresa, a conta terá alertas de orçamento, que são gratuitos, avisando o grupo ao atingir US$ 50 e US$ 150.
+De setembro a dezembro, o regime sob demanda consome cerca de **US$ 9 dos US$ 50** disponíveis. Com as duas máquinas sempre ligadas, o mesmo período custaria cerca de US$ 77 e estouraria o orçamento antes da última etapa.
+
+Duas consequências merecem registro. A primeira é que o piso do custo é o armazenamento: disco de máquina desligada e armazenamento de banco parado continuam sendo cobrados, e somam US$ 3,10 por mês independentemente de uso — ou seja, 89% do consumo previsto. A segunda é que o maior risco não é técnico, e sim de esquecimento: um banco deixado ligado por um mês consome US$ 14, mais do que o projeto inteiro. Como o indicador de saldo do laboratório é alimentado pelo serviço de orçamentos da AWS e atrasa de oito a doze horas (AMAZON WEB SERVICES, 2026c), ele não serve de alarme. A proteção é procedimental e está no próprio pipeline: a última tarefa do fluxo desliga a máquina de processamento, e o encerramento de cada sessão de trabalho para o banco.
 
 # 9 REPOSITÓRIO
 
-O código do projeto está disponível em: [INSERIR LINK DO REPOSITÓRIO DO GRUPO NO GITHUB].
+O código do projeto está disponível em: https://github.com/grupotbd19h-rgb/eixo4-nexo-sistemas.
+
+O repositório reúne o programa que gera as bases sintéticas das três origens, o programa que desenha os diagramas, o gerador deste documento e os arquivos de dados produzidos. Os fluxos do Airflow e os comandos SQL da transformação serão acrescentados na Etapa 3, quando o pipeline for implementado.
 
 # 10 REFERÊNCIAS
 
-AMAZON WEB SERVICES. AWS Free Tier FAQs. 2026a. 2026. Disponível em: https://aws.amazon.com/free/free-tier-faqs/. Acesso em: 14 set. 2026.
+AMAZON WEB SERVICES. Amazon EC2 On-Demand Pricing. 2026a. Disponível em: https://aws.amazon.com/ec2/pricing/on-demand/. Acesso em: 24 set. 2026.
 
-AMAZON WEB SERVICES. Amazon EC2 On-Demand Pricing. 2026. Disponível em: https://aws.amazon.com/ec2/pricing/on-demand/. Acesso em: 14 set. 2026.
+AMAZON WEB SERVICES. Amazon RDS for PostgreSQL Pricing. 2026b. Disponível em: https://aws.amazon.com/rds/postgresql/pricing/. Acesso em: 24 set. 2026.
 
-AMAZON WEB SERVICES. Amazon RDS for PostgreSQL Pricing. 2026. Disponível em: https://aws.amazon.com/rds/postgresql/pricing/. Acesso em: 14 set. 2026.
+AMAZON WEB SERVICES. AWS Academy Learner Lab: educator guide. 2026c. Disponível em: https://d1.awsstatic.com/AWS%20Academy%20Learner%20Lab%20Educator%20Guide.pdf. Acesso em: 24 set. 2026.
 
 BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). Brasília, DF: Presidência da República, 2018. Disponível em: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm. Acesso em: 30 ago. 2026.
 

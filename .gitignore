@@ -8,6 +8,10 @@ etapa-2/dados.rar
 # Testes locais, fora do entregável
 etapa-2/dash/
 
+# Saídas derivadas da Etapa 3, refeitas por particionar.py e glue/job_estrela.py
+etapa-3/dados_particionados/
+etapa-3/saida_estrela/
+
 # Arquivos temporários do Word/Office
 ~$*
 

@@ -1,0 +1,134 @@
+{
+  "Comment": "Nexo Sistemas - Etapa 3. Fluxo de controle da carga: valida a camada bruta, constroi o modelo estrela com o Glue e so declara sucesso depois de conferir o resultado no Athena.",
+  "StartAt": "ValidarCamadaBruta",
+  "States": {
+
+    "ValidarCamadaBruta": {
+      "Type": "Task",
+      "Comment": "Nao adianta transformar o que nao chegou: o fluxo comeca conferindo que a camada bruta tem dado.",
+      "Resource": "arn:aws:states:::athena:startQueryExecution.sync",
+      "Parameters": {
+        "QueryString": "SELECT count(*) FROM nexo_raw.crm_oportunidades",
+        "WorkGroup": "primary",
+        "ResultConfiguration": {
+          "OutputLocation": "s3://nexo-eixo4-dados/athena-results/"
+        }
+      },
+      "ResultPath": "$.consultaBruta",
+      "Next": "LerContagemBruta"
+    },
+
+    "LerContagemBruta": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::athena:getQueryResults",
+      "Parameters": {
+        "QueryExecutionId.$": "$.consultaBruta.QueryExecution.QueryExecutionId"
+      },
+      "ResultSelector": {
+        "linhas.$": "$.ResultSet.Rows[1].Data[0].VarCharValue"
+      },
+      "ResultPath": "$.bruta",
+      "Next": "HaDadoBruto"
+    },
+
+    "HaDadoBruto": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.bruta.linhas",
+          "StringEquals": "0",
+          "Next": "FalhaSemDadoBruto"
+        }
+      ],
+      "Default": "ConstruirEstrela"
+    },
+
+    "ConstruirEstrela": {
+      "Type": "Task",
+      "Comment": "Job Python Shell. A concorrencia maxima do Glue no laboratorio e 1, por isso a repeticao trata o caso de outra execucao ainda em curso.",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "nexo-estrela"
+      },
+      "Retry": [
+        {
+          "ErrorEquals": ["Glue.ConcurrentRunsExceededException"],
+          "IntervalSeconds": 60,
+          "MaxAttempts": 3,
+          "BackoffRate": 1.5
+        }
+      ],
+      "Catch": [
+        {
+          "ErrorEquals": ["States.ALL"],
+          "ResultPath": "$.erro",
+          "Next": "FalhaNaTransformacao"
+        }
+      ],
+      "ResultPath": "$.jobGlue",
+      "Next": "ValidarEstrela"
+    },
+
+    "ValidarEstrela": {
+      "Type": "Task",
+      "Comment": "O job pode terminar com sucesso e ainda assim nao ter gravado nada. Sucesso aqui e o fato existir e ter linha.",
+      "Resource": "arn:aws:states:::athena:startQueryExecution.sync",
+      "Parameters": {
+        "QueryString": "SELECT count(*) FROM nexo_dw.fato_oportunidade",
+        "WorkGroup": "primary",
+        "ResultConfiguration": {
+          "OutputLocation": "s3://nexo-eixo4-dados/athena-results/"
+        }
+      },
+      "ResultPath": "$.consultaEstrela",
+      "Next": "LerContagemEstrela"
+    },
+
+    "LerContagemEstrela": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::athena:getQueryResults",
+      "Parameters": {
+        "QueryExecutionId.$": "$.consultaEstrela.QueryExecution.QueryExecutionId"
+      },
+      "ResultSelector": {
+        "linhas.$": "$.ResultSet.Rows[1].Data[0].VarCharValue"
+      },
+      "ResultPath": "$.estrela",
+      "Next": "EstrelaConsistente"
+    },
+
+    "EstrelaConsistente": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.estrela.linhas",
+          "StringEquals": "0",
+          "Next": "FalhaEstrelaVazia"
+        }
+      ],
+      "Default": "CargaConcluida"
+    },
+
+    "CargaConcluida": {
+      "Type": "Succeed"
+    },
+
+    "FalhaSemDadoBruto": {
+      "Type": "Fail",
+      "Error": "CamadaBrutaVazia",
+      "Cause": "Nenhuma linha em nexo_raw.crm_oportunidades: verificar o envio para o S3 antes de transformar."
+    },
+
+    "FalhaNaTransformacao": {
+      "Type": "Fail",
+      "Error": "JobGlueFalhou",
+      "Cause": "O job nexo-estrela nao terminou com sucesso. O detalhe esta no log do CloudWatch, grupo /aws-glue/python-jobs/output."
+    },
+
+    "FalhaEstrelaVazia": {
+      "Type": "Fail",
+      "Error": "ModeloEstrelaVazio",
+      "Cause": "O job terminou com sucesso mas fato_oportunidade ficou sem linha."
+    }
+  }
+}

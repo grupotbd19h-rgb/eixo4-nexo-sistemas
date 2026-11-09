@@ -12,6 +12,13 @@ etapa-2/dash/
 etapa-3/dados_particionados/
 etapa-3/saida_estrela/
 
+# Dependências e build do painel: refeitos por npm install / npm run build
+etapa-5/painel/node_modules/
+etapa-5/painel/dist/
+
+# Roteiro de apresentação: material de apoio, não entregável
+etapa-3/roteiro-apresentacao.md
+
 # Arquivos temporários do Word/Office
 ~$*
 

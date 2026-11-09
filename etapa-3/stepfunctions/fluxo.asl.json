@@ -106,7 +106,47 @@
           "Next": "FalhaEstrelaVazia"
         }
       ],
-      "Default": "CargaConcluida"
+      "Default": "ConferirOrigemDestino"
+    },
+
+    "ConferirOrigemDestino": {
+      "Type": "Task",
+      "Comment": "Observabilidade do dado: conta os registros e soma o investimento nas duas pontas. Ter linha nao basta; tem que ser a mesma quantidade que saiu da origem.",
+      "Resource": "arn:aws:states:::athena:startQueryExecution.sync",
+      "Parameters": {
+        "QueryString": "SELECT count(*) AS divergencias FROM (SELECT 1 AS n WHERE (SELECT count(*) FROM nexo_raw.crm_oportunidades) <> (SELECT count(*) FROM nexo_dw.fato_oportunidade) UNION ALL SELECT 1 WHERE (SELECT count(*) FROM nexo_raw.meta_insights_diario) <> (SELECT count(*) FROM nexo_dw.fato_investimento_anuncio) UNION ALL SELECT 1 WHERE (SELECT count(*) FROM nexo_raw.planilhas_metas_mensais) <> (SELECT count(*) FROM nexo_dw.fato_meta_vendedor) UNION ALL SELECT 1 WHERE abs((SELECT sum(cast(spend AS double)) FROM nexo_raw.meta_insights_diario) - (SELECT sum(investimento) FROM nexo_dw.fato_investimento_anuncio)) >= 0.01)",
+        "WorkGroup": "primary",
+        "ResultConfiguration": {
+          "OutputLocation": "s3://nexo-eixo4-dados/athena-results/"
+        }
+      },
+      "ResultPath": "$.consultaConferencia",
+      "Next": "LerDivergencias"
+    },
+
+    "LerDivergencias": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::athena:getQueryResults",
+      "Parameters": {
+        "QueryExecutionId.$": "$.consultaConferencia.QueryExecution.QueryExecutionId"
+      },
+      "ResultSelector": {
+        "total.$": "$.ResultSet.Rows[1].Data[0].VarCharValue"
+      },
+      "ResultPath": "$.conferencia",
+      "Next": "OrigemBateComDestino"
+    },
+
+    "OrigemBateComDestino": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.conferencia.total",
+          "StringEquals": "0",
+          "Next": "CargaConcluida"
+        }
+      ],
+      "Default": "FalhaDivergencia"
     },
 
     "CargaConcluida": {
@@ -121,14 +161,21 @@
 
     "FalhaNaTransformacao": {
       "Type": "Fail",
+      "Comment": "A causa e montada a partir do erro capturado, nao escrita a mao: mensagem fixa mente quando o motivo e outro, como um job que nem chegou a existir.",
       "Error": "JobGlueFalhou",
-      "Cause": "O job nexo-estrela nao terminou com sucesso. O detalhe esta no log do CloudWatch, grupo /aws-glue/python-jobs/output."
+      "CausePath": "States.Format('A construcao do modelo estrela falhou. Erro: {} — {}. Se o job chegou a iniciar, o detalhe esta no CloudWatch, grupo /aws-glue/python-jobs/output.', $.erro.Error, $.erro.Cause)"
     },
 
     "FalhaEstrelaVazia": {
       "Type": "Fail",
       "Error": "ModeloEstrelaVazio",
       "Cause": "O job terminou com sucesso mas fato_oportunidade ficou sem linha."
+    },
+
+    "FalhaDivergencia": {
+      "Type": "Fail",
+      "Error": "OrigemDestinoDivergentes",
+      "Cause": "A contagem de registros ou a soma do investimento difere entre a camada bruta e o modelo estrela. Rodar sql/04_conferencia.sql para ver qual verificacao falhou."
     }
   }
 }

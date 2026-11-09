@@ -1,0 +1,406 @@
+/* Tokens de cor. Os valores de série vêm da paleta validada do guia de
+   visualização — passam nos testes de contraste e de visão com deficiência de
+   cor nos dois modos. O acento dourado é cromo de interface, não codificação de
+   dado: ele identifica a navegação, nunca uma categoria do gráfico. */
+
+:root {
+  color-scheme: light;
+  --plano: #f4f4f1;
+  --superficie: #fcfcfb;
+  --barra: #1f2027;
+  --barra-tinta: #e8e7e3;
+  --tinta-1: #0b0b0b;
+  --tinta-2: #52514e;
+  --tinta-3: #898781;
+  --grade: #e1e0d9;
+  --eixo: #c3c2b7;
+  --borda: rgba(11, 11, 11, 0.1);
+  --serie-1: #eda100;
+  --serie-2: #2a78d6;
+  --serie-3: #1baf7a;
+  --serie-4: #6250d6;
+  --serie-5: #e87ba4;
+  --acento: #b07d00;
+  --positivo: #006300;
+  --negativo: #e34948;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --plano: #0d0d0d;
+    --superficie: #1a1a19;
+    --barra: #121214;
+    --barra-tinta: #e8e7e3;
+    --tinta-1: #f0efec;
+    --tinta-2: #c3c2b7;
+    --tinta-3: #898781;
+    --grade: #2c2c2a;
+    --eixo: #383835;
+    --borda: rgba(255, 255, 255, 0.1);
+    --serie-1: #c98500;
+    --serie-2: #3987e5;
+    --serie-3: #199e70;
+    --serie-4: #9085e9;
+    --serie-5: #d55181;
+    --acento: #c98500;
+    --positivo: #0ca30c;
+    --negativo: #e66767;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --plano: #0d0d0d;
+  --superficie: #1a1a19;
+  --barra: #121214;
+  --barra-tinta: #e8e7e3;
+  --tinta-1: #f0efec;
+  --tinta-2: #c3c2b7;
+  --tinta-3: #898781;
+  --grade: #2c2c2a;
+  --eixo: #383835;
+  --borda: rgba(255, 255, 255, 0.1);
+  --serie-1: #c98500;
+  --serie-2: #3987e5;
+  --serie-3: #199e70;
+  --serie-4: #9085e9;
+  --serie-5: #d55181;
+  --acento: #c98500;
+  --positivo: #0ca30c;
+  --negativo: #e66767;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--plano);
+  color: var(--tinta-1);
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* ------------------------------------------------------------ barra superior */
+.barra-topo {
+  background: var(--barra);
+  color: var(--barra-tinta);
+  padding: 0 20px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.barra-topo .trilha { display: flex; align-items: center; gap: 10px; }
+.barra-topo .trilha span { color: #8e8d87; }
+.barra-topo .trilha strong { font-weight: 600; }
+.barra-topo .quem { color: #8e8d87; font-size: 12px; }
+
+/* ------------------------------------------------------------------- página */
+.pagina {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 22px 20px 56px;
+}
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.cabecalho h1 {
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.abas { display: flex; gap: 4px; flex-wrap: wrap; }
+
+.abas button {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+  cursor: pointer;
+}
+
+.abas button:hover { color: var(--tinta-1); background: var(--superficie); }
+
+.abas button.ativa {
+  color: var(--acento);
+  background: color-mix(in srgb, var(--acento) 16%, transparent);
+}
+
+.carimbo {
+  margin-left: auto;
+  text-align: right;
+  font-size: 11px;
+  color: var(--tinta-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.carimbo strong {
+  display: block;
+  font-size: 12px;
+  color: var(--tinta-2);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ------------------------------------------------------------------ filtros */
+.filtros {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.filtros label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-3);
+  margin-bottom: 4px;
+}
+
+.filtros .campo { font-size: 13px; font-weight: 600; color: var(--tinta-1); }
+
+/* -------------------------------------------------------------------- tiles */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(188px, 1fr));
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.tile {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--serie-1);
+  border-radius: 8px;
+  padding: 11px 14px;
+}
+
+.tile dt {
+  font-size: 10px;
+  color: var(--tinta-3);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin: 0 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile dd {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.tile .nota {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--tinta-3);
+  margin-top: 3px;
+  letter-spacing: 0;
+}
+
+/* ------------------------------------------------------------------- painéis */
+.painel {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 16px 18px 18px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* O corpo cresce e centra o que for curto; o rodapé cola embaixo. É isso que
+   faz dois cartões vizinhos terminarem alinhados sem espaço morto. */
+.painel .corpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.painel .corpo > .rolagem { flex: 1; }
+
+.painel h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--tinta-2);
+  margin: 0 0 3px;
+}
+
+.painel .legenda {
+  font-size: 12.5px;
+  color: var(--tinta-3);
+  margin: 0 0 16px;
+  max-width: 76ch;
+}
+
+/* align-items: stretch (o padrão) é deliberado: cartões lado a lado terminam na
+   mesma linha, e o conteúdo mais curto se distribui dentro do cartão em vez de
+   deixar um buraco embaixo dele. */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 16px;
+}
+
+.grade-larga {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(300px, 5fr) minmax(340px, 5fr);
+}
+
+@media (max-width: 920px) {
+  .grade, .grade-larga { grid-template-columns: 1fr; }
+}
+
+.grade .painel, .grade-larga .painel { margin-bottom: 0; }
+
+svg { display: block; width: 100%; overflow: visible; }
+
+.rotulo { font-size: 12px; fill: var(--tinta-2); }
+.valor { font-size: 11px; fill: var(--tinta-1); font-weight: 700; }
+.eixo-texto { font-size: 10.5px; fill: var(--tinta-3); font-variant-numeric: tabular-nums; }
+
+.alvo { fill: transparent; cursor: pointer; }
+
+/* --------------------------------------------------------------------- dica */
+.dica {
+  position: fixed;
+  pointer-events: none;
+  background: var(--barra);
+  color: var(--barra-tinta);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 7px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.45;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.dica strong { display: block; margin-bottom: 2px; font-size: 12.5px; }
+.dica span { color: #a9a8a1; }
+
+/* ----------------------------------------------------------------- legendas */
+.legendas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 12px;
+  font-size: 11.5px;
+  color: var(--tinta-2);
+}
+
+.legendas i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+/* ------------------------------------------------------------------ tabelas */
+.rolagem { overflow-x: auto; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+th, td {
+  text-align: right;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--grade);
+  white-space: nowrap;
+}
+
+th:first-child, td:first-child { text-align: left; }
+
+th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--tinta-3);
+  font-weight: 700;
+  border-bottom: 1px solid var(--eixo);
+}
+
+tbody tr:hover td { background: color-mix(in srgb, var(--acento) 7%, transparent); }
+
+tr.grupo td {
+  font-weight: 700;
+  color: var(--acento);
+  background: color-mix(in srgb, var(--acento) 9%, transparent);
+}
+
+tr.membro td:first-child { padding-left: 24px; color: var(--tinta-2); }
+
+tr.total td {
+  font-weight: 700;
+  border-top: 2px solid var(--eixo);
+  border-bottom: none;
+  background: color-mix(in srgb, var(--acento) 5%, transparent);
+}
+
+tr.sintetica td { color: var(--tinta-3); font-style: italic; }
+
+td.acima { color: var(--positivo); font-weight: 600; }
+td.abaixo { color: var(--negativo); }
+
+/* ------------------------------------------------------------------ detalhes */
+details { margin-top: 14px; border-top: 1px solid var(--grade); padding-top: 10px; }
+summary { cursor: pointer; font-size: 12px; color: var(--tinta-3); }
+summary:hover { color: var(--tinta-1); }
+
+footer {
+  margin-top: 28px;
+  font-size: 11.5px;
+  color: var(--tinta-3);
+  border-top: 1px solid var(--grade);
+  padding-top: 14px;
+}
+
+footer code {
+  font-size: 11px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  padding: 1px 5px;
+}

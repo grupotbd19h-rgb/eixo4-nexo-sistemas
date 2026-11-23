@@ -404,3 +404,98 @@ footer code {
   border-radius: 4px;
   padding: 1px 5px;
 }
+
+/* ---------------------------------------------------- conexão com o banco */
+/* O estado da conexão é sinal de sistema, não dado: usa as cores de status
+   (positivo/negativo), nunca as cores de série dos gráficos. */
+.conexao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-left: 3px solid var(--tinta-3);
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 12.5px;
+  color: var(--tinta-2);
+}
+
+.conexao.ok { border-left-color: var(--positivo); }
+.conexao.falha { border-left-color: var(--negativo); }
+
+.conexao .luz {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--tinta-3);
+  flex: none;
+}
+
+.conexao.ok .luz { background: var(--positivo); }
+.conexao.falha .luz { background: var(--negativo); }
+.conexao.carregando .luz { animation: pulsar 1s ease-in-out infinite; }
+
+@keyframes pulsar { 50% { opacity: 0.3; } }
+
+.conexao strong { color: var(--tinta-1); font-weight: 600; }
+.conexao .detalhe { color: var(--tinta-3); }
+.conexao .acoes { margin-left: auto; display: flex; gap: 8px; }
+
+.conexao button {
+  appearance: none;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 7px;
+  border: 1px solid var(--borda);
+  background: var(--plano);
+  color: var(--tinta-1);
+  cursor: pointer;
+}
+
+.conexao button:hover:not(:disabled) { border-color: var(--acento); color: var(--acento); }
+.conexao button:disabled { opacity: 0.5; cursor: progress; }
+
+.teste {
+  width: 100%;
+  margin: 4px 0 0;
+  padding-top: 10px;
+  border-top: 1px dashed var(--grade);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 8px 18px;
+}
+
+.teste dt { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tinta-3); }
+.teste dd { margin: 2px 0 0; font-weight: 600; color: var(--tinta-1); font-variant-numeric: tabular-nums; word-break: break-all; }
+
+/* --------------------------------------------- régua do intervalo de confiança */
+.regua {
+  position: relative;
+  display: block;
+  height: 14px;
+  background: linear-gradient(var(--grade), var(--grade)) center / 100% 1px no-repeat;
+}
+
+.regua-faixa {
+  position: absolute;
+  top: 4px;
+  height: 6px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--serie-2) 35%, transparent);
+}
+
+.regua-ponto {
+  position: absolute;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 50%;
+  background: var(--serie-2);
+  border: 2px solid var(--superficie);
+}

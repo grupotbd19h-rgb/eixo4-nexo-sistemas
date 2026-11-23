@@ -1,19 +1,24 @@
 {
   "name": "nexo-painel",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Painel de funil comercial e custo de aquisicao da Nexo Sistemas",
+  "description": "Painel de funil comercial e custo de aquisicao da Nexo Sistemas, conectado ao Amazon Athena",
   "scripts": {
     "dev": "vite --base ./",
-    "build": "tsc --noEmit && vite build --base ./",
-    "preview": "vite preview --base ./"
+    "build": "tsc --noEmit && tsc --noEmit -p servidor && vite build --base ./",
+    "preview": "vite preview --base ./",
+    "servidor": "tsx servidor/index.ts",
+    "copia": "tsx servidor/copia.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-athena": "3.1161.0",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "tsx": "4.23.15"
   },
   "devDependencies": {
+    "@types/node": "22.20.5",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "typescript": "5.6.3",

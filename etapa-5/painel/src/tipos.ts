@@ -1,5 +1,5 @@
-// Espelha o JSON produzido por etapa-5/exportar_painel.py a partir do modelo
-// estrela. Se o exportador mudar, o TypeScript acusa aqui, no build.
+// Contrato entre o servidor (servidor/consultas.ts, que lê o Athena) e o front.
+// Os dois lados importam este arquivo: se um mudar, o TypeScript acusa no outro.
 
 export type Resumo = {
   oportunidades: number
@@ -129,6 +129,74 @@ export type Periodo = {
   campanhas: number
 }
 
+// --- fila de atendimento (pergunta 1) -----------------------------------------
+
+export type Combinacao = {
+  posicao: number
+  fonte: string
+  temperatura: string
+  porte: string
+  plano: string
+  oportunidades: number
+  contratos: number
+  conversao: number
+  icInferior: number
+  icSuperior: number
+  ticket: number | null
+}
+
+export type TesteQui = {
+  estatistica: number
+  grausLiberdade: number
+  pValor: number
+  vCramer: number
+  valido: boolean
+}
+
+export type NivelAtributo = {
+  nivel: string
+  oportunidades: number
+  contratos: number
+  conversao: number
+}
+
+export type Atributo = {
+  atributo: string
+  niveis: NivelAtributo[]
+  teste: TesteQui
+}
+
+export type Fila = {
+  minimo: number
+  combinacoes: Combinacao[]
+  atributos: Atributo[]
+  cobertas: number
+}
+
+// --- resposta da API ------------------------------------------------------------
+
+export type RespostaPainel = {
+  origem: 'athena'
+  banco: string
+  regiao: string
+  lidoEm: string
+  diagnostico: { consultas: number; bytesLidos: number; ms: number; ids: string[] }
+  painel: Painel
+}
+
+export type RespostaSaude =
+  | {
+      ok: true
+      banco: string
+      regiao: string
+      tabelas: Record<string, number>
+      ms: number
+      bytesLidos: number
+      idConsulta: string
+      quando: string
+    }
+  | { ok: false; banco: string; regiao: string; ms: number; motivo: string; detalhe: string }
+
 export type Painel = {
   geradoEm: string
   periodo: Periodo
@@ -140,4 +208,5 @@ export type Painel = {
   planos: Plano[]
   rastreio: Rastreio[]
   ranking: Closer[]
+  fila: Fila
 }

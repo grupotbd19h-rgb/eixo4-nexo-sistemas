@@ -1,5 +1,5 @@
 {
-  "geradoEm": "09/11/2026 18:26",
+  "geradoEm": "23/11/2026 16:15",
   "periodo": {
     "inicio": "2026-03-01",
     "fim": "2026-08-31",
@@ -14,7 +14,7 @@
         "pessoas": 4,
         "oportunidades": 488,
         "contratos": 45,
-        "receita12m": 496272.0,
+        "receita12m": 496272,
         "conversao": 9.22
       },
       {
@@ -23,7 +23,7 @@
         "pessoas": 13,
         "oportunidades": 5056,
         "contratos": 475,
-        "receita12m": 1664568.0,
+        "receita12m": 1664568,
         "conversao": 9.39
       },
       {
@@ -32,7 +32,7 @@
         "pessoas": 9,
         "oportunidades": 18348,
         "contratos": 520,
-        "receita12m": 2160840.0,
+        "receita12m": 2160840,
         "conversao": 2.83
       }
     ],
@@ -42,7 +42,7 @@
         "pessoas": 6,
         "oportunidades": 2538,
         "contratos": 228,
-        "receita12m": 1019088.0,
+        "receita12m": 1019088,
         "conversao": 8.98
       },
       {
@@ -50,7 +50,7 @@
         "pessoas": 6,
         "oportunidades": 2034,
         "contratos": 203,
-        "receita12m": 747936.0,
+        "receita12m": 747936,
         "conversao": 9.98
       },
       {
@@ -58,7 +58,7 @@
         "pessoas": 5,
         "oportunidades": 972,
         "contratos": 89,
-        "receita12m": 393816.0,
+        "receita12m": 393816,
         "conversao": 9.16
       }
     ],
@@ -66,37 +66,37 @@
       {
         "mes": "2026-03",
         "meta": 411000,
-        "realizado": 296016.0,
-        "atingimento": 72.0
+        "realizado": 296016,
+        "atingimento": 72
       },
       {
         "mes": "2026-04",
         "meta": 411000,
-        "realizado": 383484.0,
+        "realizado": 383484,
         "atingimento": 93.3
       },
       {
         "mes": "2026-05",
         "meta": 411000,
-        "realizado": 446736.0,
+        "realizado": 446736,
         "atingimento": 108.7
       },
       {
         "mes": "2026-06",
         "meta": 411000,
-        "realizado": 319944.0,
+        "realizado": 319944,
         "atingimento": 77.8
       },
       {
         "mes": "2026-07",
         "meta": 411000,
-        "realizado": 386364.0,
-        "atingimento": 94.0
+        "realizado": 386364,
+        "atingimento": 94
       },
       {
         "mes": "2026-08",
         "meta": 411000,
-        "realizado": 328296.0,
+        "realizado": 328296,
         "atingimento": 79.9
       }
     ],
@@ -104,14 +104,14 @@
       {
         "id_colaborador": "SDR01",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 1,
         "oportunidades": 3000,
         "contratos": 85,
-        "receita12m": 364236.0,
-        "medianaHoras": 9.5,
-        "funcao": "SDR",
-        "tier": 1.0,
-        "time": "Pré-vendas",
+        "receita12m": 364236,
         "conversao": 2.83,
+        "medianaHoras": 9.5,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -119,14 +119,14 @@
       {
         "id_colaborador": "SDR03",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 1,
         "oportunidades": 2920,
         "contratos": 89,
-        "receita12m": 359616.0,
-        "medianaHoras": 8.8,
-        "funcao": "SDR",
-        "tier": 1.0,
-        "time": "Pré-vendas",
+        "receita12m": 359616,
         "conversao": 3.05,
+        "medianaHoras": 8.8,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -134,14 +134,14 @@
       {
         "id_colaborador": "SDR02",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 1,
         "oportunidades": 2947,
         "contratos": 88,
-        "receita12m": 323688.0,
-        "medianaHoras": 9.8,
-        "funcao": "SDR",
-        "tier": 1.0,
-        "time": "Pré-vendas",
+        "receita12m": 323688,
         "conversao": 2.99,
+        "medianaHoras": 9.8,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -149,14 +149,14 @@
       {
         "id_colaborador": "SDR06",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 2,
         "oportunidades": 2012,
         "contratos": 67,
-        "receita12m": 292980.0,
-        "medianaHoras": 11.0,
-        "funcao": "SDR",
-        "tier": 2.0,
-        "time": "Pré-vendas",
+        "receita12m": 292980,
         "conversao": 3.33,
+        "medianaHoras": 11,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -164,14 +164,14 @@
       {
         "id_colaborador": "SDR05",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 2,
         "oportunidades": 1973,
         "contratos": 49,
-        "receita12m": 213084.0,
-        "medianaHoras": 8.4,
-        "funcao": "SDR",
-        "tier": 2.0,
-        "time": "Pré-vendas",
+        "receita12m": 213084,
         "conversao": 2.48,
+        "medianaHoras": 8.4,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -179,89 +179,89 @@
       {
         "id_colaborador": "CLO06",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 1,
         "oportunidades": 585,
         "contratos": 54,
-        "receita12m": 192576.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 192576,
         "conversao": 9.23,
-        "meta": 192000.0,
-        "realizado": 192576.0,
+        "medianaHoras": 0.8,
+        "meta": 192000,
+        "realizado": 192576,
         "atingimento": 100.3
       },
       {
         "id_colaborador": "CLO01",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Contas Corporativas",
+        "tier": 1,
         "oportunidades": 161,
         "contratos": 17,
-        "receita12m": 182784.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Contas Corporativas",
+        "receita12m": 182784,
         "conversao": 10.56,
-        "meta": 240000.0,
-        "realizado": 182784.0,
+        "medianaHoras": 0.8,
+        "meta": 240000,
+        "realizado": 182784,
         "atingimento": 76.2
       },
       {
         "id_colaborador": "CLO07",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 1,
         "oportunidades": 548,
         "contratos": 47,
-        "receita12m": 181656.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 181656,
         "conversao": 8.58,
-        "meta": 192000.0,
-        "realizado": 181656.0,
+        "medianaHoras": 0.9,
+        "meta": 192000,
+        "realizado": 181656,
         "atingimento": 94.6
       },
       {
         "id_colaborador": "CLO08",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 1,
         "oportunidades": 579,
         "contratos": 55,
-        "receita12m": 180996.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 180996,
         "conversao": 9.5,
-        "meta": 192000.0,
-        "realizado": 180996.0,
+        "medianaHoras": 0.8,
+        "meta": 192000,
+        "realizado": 180996,
         "atingimento": 94.3
       },
       {
         "id_colaborador": "CLO12",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 2,
         "oportunidades": 402,
         "contratos": 48,
-        "receita12m": 173412.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 173412,
         "conversao": 11.94,
-        "meta": 126000.0,
-        "realizado": 173412.0,
+        "medianaHoras": 0.9,
+        "meta": 126000,
+        "realizado": 173412,
         "atingimento": 137.6
       },
       {
         "id_colaborador": "SDR08",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 3,
         "oportunidades": 1183,
         "contratos": 40,
-        "receita12m": 172452.0,
-        "medianaHoras": 11.5,
-        "funcao": "SDR",
-        "tier": 3.0,
-        "time": "Pré-vendas",
+        "receita12m": 172452,
         "conversao": 3.38,
+        "medianaHoras": 11.5,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -269,14 +269,14 @@
       {
         "id_colaborador": "SDR04",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 2,
         "oportunidades": 1924,
         "contratos": 43,
-        "receita12m": 170808.0,
-        "medianaHoras": 10.3,
-        "funcao": "SDR",
-        "tier": 2.0,
-        "time": "Pré-vendas",
+        "receita12m": 170808,
         "conversao": 2.23,
+        "medianaHoras": 10.3,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -284,44 +284,44 @@
       {
         "id_colaborador": "CLO09",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 2,
         "oportunidades": 389,
         "contratos": 46,
-        "receita12m": 167148.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 167148,
         "conversao": 11.83,
-        "meta": 126000.0,
-        "realizado": 167148.0,
+        "medianaHoras": 0.8,
+        "meta": 126000,
+        "realizado": 167148,
         "atingimento": 132.7
       },
       {
         "id_colaborador": "CLO02",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Contas Corporativas",
+        "tier": 1,
         "oportunidades": 142,
         "contratos": 15,
-        "receita12m": 159048.0,
-        "medianaHoras": 2.0,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Contas Corporativas",
+        "receita12m": 159048,
         "conversao": 10.56,
-        "meta": 240000.0,
-        "realizado": 159048.0,
+        "medianaHoras": 2,
+        "meta": 240000,
+        "realizado": 159048,
         "atingimento": 66.3
       },
       {
         "id_colaborador": "SDR09",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 3,
         "oportunidades": 1164,
         "contratos": 27,
-        "receita12m": 133872.0,
-        "medianaHoras": 9.9,
-        "funcao": "SDR",
-        "tier": 3.0,
-        "time": "Pré-vendas",
+        "receita12m": 133872,
         "conversao": 2.32,
+        "medianaHoras": 9.9,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -329,29 +329,29 @@
       {
         "id_colaborador": "CLO11",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 2,
         "oportunidades": 397,
         "contratos": 42,
-        "receita12m": 132792.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 132792,
         "conversao": 10.58,
-        "meta": 126000.0,
-        "realizado": 132792.0,
+        "medianaHoras": 0.9,
+        "meta": 126000,
+        "realizado": 132792,
         "atingimento": 105.4
       },
       {
         "id_colaborador": "SDR07",
         "papel": "SDR",
+        "funcao": "SDR",
+        "time": "Pré-vendas",
+        "tier": 3,
         "oportunidades": 1225,
         "contratos": 32,
-        "receita12m": 130104.0,
-        "medianaHoras": 7.9,
-        "funcao": "SDR",
-        "tier": 3.0,
-        "time": "Pré-vendas",
+        "receita12m": 130104,
         "conversao": 2.61,
+        "medianaHoras": 7.9,
         "meta": null,
         "realizado": null,
         "atingimento": null
@@ -359,137 +359,137 @@
       {
         "id_colaborador": "CLO05",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 1,
         "oportunidades": 523,
         "contratos": 40,
-        "receita12m": 122028.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 1.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 122028,
         "conversao": 7.65,
-        "meta": 192000.0,
-        "realizado": 122028.0,
+        "medianaHoras": 0.8,
+        "meta": 192000,
+        "realizado": 122028,
         "atingimento": 63.6
       },
       {
         "id_colaborador": "CLO10",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 2,
         "oportunidades": 371,
         "contratos": 31,
-        "receita12m": 105312.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 105312,
         "conversao": 8.36,
-        "meta": 126000.0,
-        "realizado": 105312.0,
+        "medianaHoras": 0.8,
+        "meta": 126000,
+        "realizado": 105312,
         "atingimento": 83.6
       },
       {
         "id_colaborador": "CLO13",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 2,
         "oportunidades": 364,
         "contratos": 30,
-        "receita12m": 97992.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 97992,
         "conversao": 8.24,
-        "meta": 126000.0,
-        "realizado": 97992.0,
+        "medianaHoras": 0.9,
+        "meta": 126000,
+        "realizado": 97992,
         "atingimento": 77.8
       },
       {
         "id_colaborador": "CLO15",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 3,
         "oportunidades": 218,
         "contratos": 25,
-        "receita12m": 92544.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 3.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 92544,
         "conversao": 11.47,
-        "meta": 78000.0,
-        "realizado": 92544.0,
+        "medianaHoras": 0.8,
+        "meta": 78000,
+        "realizado": 92544,
         "atingimento": 118.6
       },
       {
         "id_colaborador": "CLO04",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Contas Corporativas",
+        "tier": 3,
         "oportunidades": 74,
         "contratos": 7,
-        "receita12m": 83160.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 3.0,
-        "time": "Contas Corporativas",
+        "receita12m": 83160,
         "conversao": 9.46,
-        "meta": 108000.0,
-        "realizado": 83160.0,
-        "atingimento": 77.0
+        "medianaHoras": 0.8,
+        "meta": 108000,
+        "realizado": 83160,
+        "atingimento": 77
       },
       {
         "id_colaborador": "CLO16",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 3,
         "oportunidades": 244,
         "contratos": 24,
-        "receita12m": 82584.0,
-        "medianaHoras": 0.8,
-        "funcao": "Closer",
-        "tier": 3.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 82584,
         "conversao": 9.84,
-        "meta": 78000.0,
-        "realizado": 82584.0,
+        "medianaHoras": 0.8,
+        "meta": 78000,
+        "realizado": 82584,
         "atingimento": 105.9
       },
       {
         "id_colaborador": "CLO03",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Contas Corporativas",
+        "tier": 2,
         "oportunidades": 111,
         "contratos": 6,
-        "receita12m": 71280.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 2.0,
-        "time": "Contas Corporativas",
+        "receita12m": 71280,
         "conversao": 5.41,
-        "meta": 168000.0,
-        "realizado": 71280.0,
+        "medianaHoras": 0.9,
+        "meta": 168000,
+        "realizado": 71280,
         "atingimento": 42.4
       },
       {
         "id_colaborador": "CLO17",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 3,
         "oportunidades": 212,
         "contratos": 19,
-        "receita12m": 70008.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 3.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 70008,
         "conversao": 8.96,
-        "meta": 78000.0,
-        "realizado": 70008.0,
+        "medianaHoras": 0.9,
+        "meta": 78000,
+        "realizado": 70008,
         "atingimento": 89.8
       },
       {
         "id_colaborador": "CLO14",
         "papel": "Closer",
+        "funcao": "Closer",
+        "time": "Pequeno Varejo",
+        "tier": 3,
         "oportunidades": 224,
         "contratos": 14,
-        "receita12m": 65520.0,
-        "medianaHoras": 0.9,
-        "funcao": "Closer",
-        "tier": 3.0,
-        "time": "Pequeno Varejo",
+        "receita12m": 65520,
         "conversao": 6.25,
-        "meta": 78000.0,
-        "realizado": 65520.0,
-        "atingimento": 84.0
+        "medianaHoras": 0.9,
+        "meta": 78000,
+        "realizado": 65520,
+        "atingimento": 84
       }
     ],
     "metasSemConfronto": [
@@ -497,19 +497,19 @@
         "funcao": "Gestor",
         "tipo_meta": "valor_vendido_anual_time",
         "pessoas": 1,
-        "media": 411000.0
+        "media": 411000
       },
       {
         "funcao": "Recuperador",
         "tipo_meta": "contratos_recuperados",
         "pessoas": 3,
-        "media": 3.0
+        "media": 3
       },
       {
         "funcao": "SDR",
         "tipo_meta": "reunioes_realizadas",
         "pessoas": 9,
-        "media": 65.0
+        "media": 65
       }
     ],
     "efetivo": 30
@@ -519,9 +519,9 @@
     "contratos": 520,
     "conversao": 2.7,
     "investimento": 407099.73,
-    "receita12m": 2160840.0,
+    "receita12m": 2160840,
     "contratosAtribuidos": 273,
-    "receitaAtribuida": 1059120.0,
+    "receitaAtribuida": 1059120,
     "cac": 1491.21,
     "retorno": 2.6,
     "ticketMedio": 4155.46
@@ -529,19 +529,19 @@
   "resposta": [
     {
       "faixa": "Até 1h",
-      "oportunidades": 6782,
-      "contratos": 275,
-      "conversao": 4.05
+      "oportunidades": 6742,
+      "contratos": 274,
+      "conversao": 4.06
     },
     {
       "faixa": "1 a 24h",
-      "oportunidades": 4369,
-      "contratos": 160,
-      "conversao": 3.66
+      "oportunidades": 4407,
+      "contratos": 161,
+      "conversao": 3.65
     },
     {
       "faixa": "24 a 72h",
-      "oportunidades": 2073,
+      "oportunidades": 2075,
       "contratos": 44,
       "conversao": 2.12
     },
@@ -555,7 +555,7 @@
       "faixa": "Nunca contatada",
       "oportunidades": 2537,
       "contratos": 0,
-      "conversao": 0.0
+      "conversao": 0
     }
   ],
   "funil": [
@@ -564,120 +564,120 @@
       "oportunidades": 3071,
       "contratos": 90,
       "conversao": 2.93,
-      "receita12m": 388512.0
+      "receita12m": 388512
     },
     {
       "mes": "2026-04",
       "oportunidades": 2936,
       "contratos": 90,
       "conversao": 3.07,
-      "receita12m": 405540.0
+      "receita12m": 405540
     },
     {
       "mes": "2026-05",
       "oportunidades": 3094,
       "contratos": 92,
       "conversao": 2.97,
-      "receita12m": 349620.0
+      "receita12m": 349620
     },
     {
       "mes": "2026-06",
       "oportunidades": 3024,
       "contratos": 88,
       "conversao": 2.91,
-      "receita12m": 350592.0
+      "receita12m": 350592
     },
     {
       "mes": "2026-07",
       "oportunidades": 2919,
       "contratos": 68,
       "conversao": 2.33,
-      "receita12m": 290568.0
+      "receita12m": 290568
     },
     {
       "mes": "2026-08",
       "oportunidades": 3264,
       "contratos": 3,
       "conversao": 0.09,
-      "receita12m": 10944.0
+      "receita12m": 10944
     }
   ],
   "campanhas": [
     {
+      "id_campanha": "SEM_UTM",
+      "nome_campanha": "(sem UTM)",
+      "objetivo": "(desconhecido)",
+      "oportunidades": 5629,
+      "contratos": 243,
+      "receita12m": 1090428,
+      "investimento": 0,
+      "cac": 0,
+      "retorno": null
+    },
+    {
+      "id_campanha": "120274831420778493",
+      "nome_campanha": "MT_LEADS_PEQ_VAREJO_001",
+      "objetivo": "OUTCOME_LEADS",
+      "oportunidades": 4383,
+      "contratos": 87,
+      "receita12m": 317796,
+      "investimento": 112340.64,
+      "cac": 1291.27,
+      "retorno": 2.83
+    },
+    {
       "id_campanha": "120213935476223121",
-      "oportunidades": 1566,
-      "contratos": 28,
-      "receita12m": 116724.0,
-      "investimento": 62973.58,
       "nome_campanha": "MT_VIDEO_ESTOQUE_001",
       "objetivo": "OUTCOME_AWARENESS",
+      "oportunidades": 1566,
+      "contratos": 28,
+      "receita12m": 116724,
+      "investimento": 62973.58,
       "cac": 2249.06,
       "retorno": 1.85
     },
     {
       "id_campanha": "120229181304803814",
-      "oportunidades": 2401,
-      "contratos": 42,
-      "receita12m": 163068.0,
-      "investimento": 58207.15,
       "nome_campanha": "MT_RMKT_SITE_001",
       "objetivo": "OUTCOME_SALES",
+      "oportunidades": 2401,
+      "contratos": 42,
+      "receita12m": 163068,
+      "investimento": 58207.15,
       "cac": 1385.88,
       "retorno": 2.8
     },
     {
-      "id_campanha": "120274831420778493",
-      "oportunidades": 4383,
-      "contratos": 87,
-      "receita12m": 317796.0,
-      "investimento": 112340.64,
-      "nome_campanha": "MT_LEADS_PEQ_VAREJO_001",
-      "objetivo": "OUTCOME_LEADS",
-      "cac": 1291.27,
-      "retorno": 2.83
-    },
-    {
-      "id_campanha": "120299701614704712",
-      "oportunidades": 2426,
-      "contratos": 55,
-      "receita12m": 221796.0,
-      "investimento": 76224.31,
-      "nome_campanha": "MT_LEADS_REDES_LOJAS_002",
-      "objetivo": "OUTCOME_LEADS",
-      "cac": 1385.9,
-      "retorno": 2.91
-    },
-    {
       "id_campanha": "120299759557666597",
-      "oportunidades": 2587,
-      "contratos": 61,
-      "receita12m": 239736.0,
-      "investimento": 97354.05,
       "nome_campanha": "MT_TRAFEGO_LP_001",
       "objetivo": "OUTCOME_TRAFFIC",
+      "oportunidades": 2587,
+      "contratos": 61,
+      "receita12m": 239736,
+      "investimento": 97354.05,
       "cac": 1595.97,
       "retorno": 2.46
     },
     {
-      "id_campanha": "SEM_UTM",
-      "oportunidades": 5629,
-      "contratos": 243,
-      "receita12m": 1090428.0,
-      "investimento": 0.0,
-      "nome_campanha": "(sem UTM)",
-      "objetivo": "(desconhecido)",
-      "cac": 0.0,
-      "retorno": null
+      "id_campanha": "120299701614704712",
+      "nome_campanha": "MT_LEADS_REDES_LOJAS_002",
+      "objetivo": "OUTCOME_LEADS",
+      "oportunidades": 2426,
+      "contratos": 55,
+      "receita12m": 221796,
+      "investimento": 76224.31,
+      "cac": 1385.9,
+      "retorno": 2.91
     },
     {
       "id_campanha": "UTM_QUEBRADA",
-      "oportunidades": 288,
-      "contratos": 4,
-      "receita12m": 11292.0,
-      "investimento": 0.0,
       "nome_campanha": "(UTM não substituída)",
       "objetivo": "(desconhecido)",
-      "cac": 0.0,
+      "oportunidades": 288,
+      "contratos": 4,
+      "receita12m": 11292,
+      "investimento": 0,
+      "cac": 0,
       "retorno": null
     }
   ],
@@ -722,92 +722,655 @@
     {
       "id_colaborador": "CLO06",
       "time": "Pequeno Varejo",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 585,
       "contratos": 54,
-      "receita12m": 192576.0,
+      "receita12m": 192576,
       "conversao": 9.23
     },
     {
       "id_colaborador": "CLO01",
       "time": "Contas Corporativas",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 161,
       "contratos": 17,
-      "receita12m": 182784.0,
+      "receita12m": 182784,
       "conversao": 10.56
     },
     {
       "id_colaborador": "CLO07",
       "time": "Pequeno Varejo",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 548,
       "contratos": 47,
-      "receita12m": 181656.0,
+      "receita12m": 181656,
       "conversao": 8.58
     },
     {
       "id_colaborador": "CLO08",
       "time": "Pequeno Varejo",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 579,
       "contratos": 55,
-      "receita12m": 180996.0,
+      "receita12m": 180996,
       "conversao": 9.5
     },
     {
       "id_colaborador": "CLO12",
       "time": "Pequeno Varejo",
-      "tier": 2.0,
+      "tier": 2,
       "oportunidades": 402,
       "contratos": 48,
-      "receita12m": 173412.0,
+      "receita12m": 173412,
       "conversao": 11.94
     },
     {
       "id_colaborador": "CLO09",
       "time": "Pequeno Varejo",
-      "tier": 2.0,
+      "tier": 2,
       "oportunidades": 389,
       "contratos": 46,
-      "receita12m": 167148.0,
+      "receita12m": 167148,
       "conversao": 11.83
     },
     {
       "id_colaborador": "CLO02",
       "time": "Contas Corporativas",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 142,
       "contratos": 15,
-      "receita12m": 159048.0,
+      "receita12m": 159048,
       "conversao": 10.56
     },
     {
       "id_colaborador": "CLO11",
       "time": "Pequeno Varejo",
-      "tier": 2.0,
+      "tier": 2,
       "oportunidades": 397,
       "contratos": 42,
-      "receita12m": 132792.0,
+      "receita12m": 132792,
       "conversao": 10.58
     },
     {
       "id_colaborador": "CLO05",
       "time": "Pequeno Varejo",
-      "tier": 1.0,
+      "tier": 1,
       "oportunidades": 523,
       "contratos": 40,
-      "receita12m": 122028.0,
+      "receita12m": 122028,
       "conversao": 7.65
     },
     {
       "id_colaborador": "CLO10",
       "time": "Pequeno Varejo",
-      "tier": 2.0,
+      "tier": 2,
       "oportunidades": 371,
       "contratos": 31,
-      "receita12m": 105312.0,
+      "receita12m": 105312,
       "conversao": 8.36
     }
-  ]
+  ],
+  "fila": {
+    "minimo": 100,
+    "combinacoes": [
+      {
+        "posicao": 1,
+        "fonte": "Orgânico",
+        "temperatura": "Alta",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 150,
+        "contratos": 19,
+        "conversao": 12.67,
+        "icInferior": 8.26,
+        "icSuperior": 18.94,
+        "ticket": 4947
+      },
+      {
+        "posicao": 2,
+        "fonte": "Indicação",
+        "temperatura": "Alta",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 154,
+        "contratos": 17,
+        "conversao": 11.04,
+        "icInferior": 7.01,
+        "icSuperior": 16.97,
+        "ticket": 2791
+      },
+      {
+        "posicao": 3,
+        "fonte": "Orgânico",
+        "temperatura": "Alta",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 161,
+        "contratos": 16,
+        "conversao": 9.94,
+        "icInferior": 6.21,
+        "icSuperior": 15.53,
+        "ticket": 2223
+      },
+      {
+        "posicao": 4,
+        "fonte": "Indicação",
+        "temperatura": "Alta",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 222,
+        "contratos": 22,
+        "conversao": 9.91,
+        "icInferior": 6.64,
+        "icSuperior": 14.55,
+        "ticket": 5204
+      },
+      {
+        "posicao": 5,
+        "fonte": "Indicação",
+        "temperatura": "Média",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 259,
+        "contratos": 21,
+        "conversao": 8.11,
+        "icInferior": 5.36,
+        "icSuperior": 12.08,
+        "ticket": 4658
+      },
+      {
+        "posicao": 6,
+        "fonte": "Indicação",
+        "temperatura": "Média",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 198,
+        "contratos": 14,
+        "conversao": 7.07,
+        "icInferior": 4.26,
+        "icSuperior": 11.52,
+        "ticket": 2607
+      },
+      {
+        "posicao": 7,
+        "fonte": "Orgânico",
+        "temperatura": "Média",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 340,
+        "contratos": 19,
+        "conversao": 5.59,
+        "icInferior": 3.61,
+        "icSuperior": 8.56,
+        "ticket": 4557
+      },
+      {
+        "posicao": 8,
+        "fonte": "Meta Ads",
+        "temperatura": "Alta",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 819,
+        "contratos": 43,
+        "conversao": 5.25,
+        "icInferior": 3.92,
+        "icSuperior": 7,
+        "ticket": 2740
+      },
+      {
+        "posicao": 9,
+        "fonte": "Orgânico",
+        "temperatura": "Média",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 361,
+        "contratos": 16,
+        "conversao": 4.43,
+        "icInferior": 2.75,
+        "icSuperior": 7.08,
+        "ticket": 2252
+      },
+      {
+        "posicao": 10,
+        "fonte": "Indicação",
+        "temperatura": "Alta",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 120,
+        "contratos": 5,
+        "conversao": 4.17,
+        "icInferior": 1.79,
+        "icSuperior": 9.38,
+        "ticket": 11642
+      },
+      {
+        "posicao": 11,
+        "fonte": "Acesso direto",
+        "temperatura": "Média",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 126,
+        "contratos": 5,
+        "conversao": 3.97,
+        "icInferior": 1.71,
+        "icSuperior": 8.95,
+        "ticket": 2234
+      },
+      {
+        "posicao": 12,
+        "fonte": "Meta Ads",
+        "temperatura": "Média",
+        "porte": "Média",
+        "plano": "Essencial",
+        "oportunidades": 104,
+        "contratos": 4,
+        "conversao": 3.85,
+        "icInferior": 1.51,
+        "icSuperior": 9.47,
+        "ticket": 2280
+      },
+      {
+        "posicao": 13,
+        "fonte": "Meta Ads",
+        "temperatura": "Alta",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 462,
+        "contratos": 17,
+        "conversao": 3.68,
+        "icInferior": 2.31,
+        "icSuperior": 5.81,
+        "ticket": 4625
+      },
+      {
+        "posicao": 14,
+        "fonte": "Indicação",
+        "temperatura": "Baixa",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 228,
+        "contratos": 8,
+        "conversao": 3.51,
+        "icInferior": 1.79,
+        "icSuperior": 6.77,
+        "ticket": 4380
+      },
+      {
+        "posicao": 15,
+        "fonte": "Meta Ads",
+        "temperatura": "Média",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 1864,
+        "contratos": 64,
+        "conversao": 3.43,
+        "icInferior": 2.7,
+        "icSuperior": 4.36,
+        "ticket": 2350
+      },
+      {
+        "posicao": 16,
+        "fonte": "Meta Ads",
+        "temperatura": "Média",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 219,
+        "contratos": 7,
+        "conversao": 3.2,
+        "icInferior": 1.56,
+        "icSuperior": 6.45,
+        "ticket": 11710
+      },
+      {
+        "posicao": 17,
+        "fonte": "Indicação",
+        "temperatura": "Baixa",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 128,
+        "contratos": 4,
+        "conversao": 3.13,
+        "icInferior": 1.22,
+        "icSuperior": 7.76,
+        "ticket": 9783
+      },
+      {
+        "posicao": 18,
+        "fonte": "Meta Ads",
+        "temperatura": "Alta",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 113,
+        "contratos": 3,
+        "conversao": 2.65,
+        "icInferior": 0.91,
+        "icSuperior": 7.52,
+        "ticket": 11880
+      },
+      {
+        "posicao": 19,
+        "fonte": "Meta Ads",
+        "temperatura": "Média",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 1102,
+        "contratos": 27,
+        "conversao": 2.45,
+        "icInferior": 1.69,
+        "icSuperior": 3.54,
+        "ticket": 4645
+      },
+      {
+        "posicao": 20,
+        "fonte": "Indicação",
+        "temperatura": "Baixa",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 182,
+        "contratos": 4,
+        "conversao": 2.2,
+        "icInferior": 0.86,
+        "icSuperior": 5.51,
+        "ticket": 2109
+      },
+      {
+        "posicao": 21,
+        "fonte": "Orgânico",
+        "temperatura": "Baixa",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 600,
+        "contratos": 13,
+        "conversao": 2.17,
+        "icInferior": 1.27,
+        "icSuperior": 3.67,
+        "ticket": 4572
+      },
+      {
+        "posicao": 22,
+        "fonte": "Orgânico",
+        "temperatura": "Baixa",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 648,
+        "contratos": 14,
+        "conversao": 2.16,
+        "icInferior": 1.29,
+        "icSuperior": 3.59,
+        "ticket": 2451
+      },
+      {
+        "posicao": 23,
+        "fonte": "Acesso direto",
+        "temperatura": "Baixa",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 201,
+        "contratos": 4,
+        "conversao": 1.99,
+        "icInferior": 0.78,
+        "icSuperior": 5,
+        "ticket": 6480
+      },
+      {
+        "posicao": 24,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Micro",
+        "plano": "Profissional",
+        "oportunidades": 161,
+        "contratos": 3,
+        "conversao": 1.86,
+        "icInferior": 0.64,
+        "icSuperior": 5.33,
+        "ticket": 4680
+      },
+      {
+        "posicao": 25,
+        "fonte": "Orgânico",
+        "temperatura": "Baixa",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 167,
+        "contratos": 3,
+        "conversao": 1.8,
+        "icInferior": 0.61,
+        "icSuperior": 5.15,
+        "ticket": 11880
+      },
+      {
+        "posicao": 26,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 586,
+        "contratos": 10,
+        "conversao": 1.71,
+        "icInferior": 0.93,
+        "icSuperior": 3.11,
+        "ticket": 10920
+      },
+      {
+        "posicao": 27,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Média",
+        "plano": "Essencial",
+        "oportunidades": 238,
+        "contratos": 4,
+        "conversao": 1.68,
+        "icInferior": 0.66,
+        "icSuperior": 4.24,
+        "ticket": 2223
+      },
+      {
+        "posicao": 28,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Pequena",
+        "plano": "Essencial",
+        "oportunidades": 247,
+        "contratos": 4,
+        "conversao": 1.62,
+        "icInferior": 0.63,
+        "icSuperior": 4.09,
+        "ticket": 2223
+      },
+      {
+        "posicao": 29,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Média",
+        "plano": "Profissional",
+        "oportunidades": 146,
+        "contratos": 2,
+        "conversao": 1.37,
+        "icInferior": 0.38,
+        "icSuperior": 4.86,
+        "ticket": 4212
+      },
+      {
+        "posicao": 30,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Pequena",
+        "plano": "Profissional",
+        "oportunidades": 2633,
+        "contratos": 33,
+        "conversao": 1.25,
+        "icInferior": 0.89,
+        "icSuperior": 1.75,
+        "ticket": 4726
+      },
+      {
+        "posicao": 31,
+        "fonte": "Meta Ads",
+        "temperatura": "Baixa",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 4499,
+        "contratos": 47,
+        "conversao": 1.04,
+        "icInferior": 0.79,
+        "icSuperior": 1.39,
+        "ticket": 2789
+      },
+      {
+        "posicao": 32,
+        "fonte": "Indicação",
+        "temperatura": "Média",
+        "porte": "Média",
+        "plano": "Corporativo",
+        "oportunidades": 104,
+        "contratos": 1,
+        "conversao": 0.96,
+        "icInferior": 0.17,
+        "icSuperior": 5.25,
+        "ticket": 11880
+      },
+      {
+        "posicao": 33,
+        "fonte": "Acesso direto",
+        "temperatura": "Baixa",
+        "porte": "Micro",
+        "plano": "Essencial",
+        "oportunidades": 317,
+        "contratos": 3,
+        "conversao": 0.95,
+        "icInferior": 0.32,
+        "icSuperior": 2.75,
+        "ticket": 2204
+      }
+    ],
+    "atributos": [
+      {
+        "atributo": "fonte",
+        "niveis": [
+          {
+            "nivel": "Acesso direto",
+            "oportunidades": 991,
+            "contratos": 19,
+            "conversao": 1.92
+          },
+          {
+            "nivel": "Indicação",
+            "oportunidades": 1780,
+            "contratos": 106,
+            "conversao": 5.96
+          },
+          {
+            "nivel": "Meta Ads",
+            "oportunidades": 13651,
+            "contratos": 277,
+            "conversao": 2.03
+          },
+          {
+            "nivel": "Orgânico",
+            "oportunidades": 2858,
+            "contratos": 118,
+            "conversao": 4.13
+          }
+        ],
+        "teste": {
+          "estatistica": 119.82,
+          "grausLiberdade": 3,
+          "pValor": 8.446567069997082e-26,
+          "vCramer": 0.079,
+          "valido": true
+        }
+      },
+      {
+        "atributo": "temperatura",
+        "niveis": [
+          {
+            "nivel": "Baixa",
+            "oportunidades": 11359,
+            "contratos": 157,
+            "conversao": 1.38
+          },
+          {
+            "nivel": "Média",
+            "oportunidades": 5292,
+            "contratos": 197,
+            "conversao": 3.72
+          },
+          {
+            "nivel": "Alta",
+            "oportunidades": 2629,
+            "contratos": 166,
+            "conversao": 6.31
+          }
+        ],
+        "teste": {
+          "estatistica": 227.11,
+          "grausLiberdade": 2,
+          "pValor": 4.826311443795061e-50,
+          "vCramer": 0.109,
+          "valido": true
+        }
+      },
+      {
+        "atributo": "porte_empresa",
+        "niveis": [
+          {
+            "nivel": "Micro",
+            "oportunidades": 9848,
+            "contratos": 254,
+            "conversao": 2.58
+          },
+          {
+            "nivel": "Média",
+            "oportunidades": 2526,
+            "contratos": 65,
+            "conversao": 2.57
+          },
+          {
+            "nivel": "Pequena",
+            "oportunidades": 6906,
+            "contratos": 201,
+            "conversao": 2.91
+          }
+        ],
+        "teste": {
+          "estatistica": 1.87,
+          "grausLiberdade": 2,
+          "pValor": 0.39302379838498935,
+          "vCramer": 0.01,
+          "valido": true
+        }
+      },
+      {
+        "atributo": "plano_interesse",
+        "niveis": [
+          {
+            "nivel": "Corporativo",
+            "oportunidades": 1834,
+            "contratos": 45,
+            "conversao": 2.45
+          },
+          {
+            "nivel": "Essencial",
+            "oportunidades": 10409,
+            "contratos": 268,
+            "conversao": 2.57
+          },
+          {
+            "nivel": "Profissional",
+            "oportunidades": 7037,
+            "contratos": 207,
+            "conversao": 2.94
+          }
+        ],
+        "teste": {
+          "estatistica": 2.61,
+          "grausLiberdade": 2,
+          "pValor": 0.2709912887028739,
+          "vCramer": 0.012,
+          "valido": true
+        }
+      }
+    ],
+    "cobertas": 17859
+  }
 }

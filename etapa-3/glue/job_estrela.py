@@ -190,7 +190,10 @@ def montar_fato_meta(metas):
     f["id_colaborador"] = metas.id_colaborador
     f["funcao"] = metas.funcao
     f["tipo_meta"] = metas.tipo_meta
-    f["valor_meta"] = pd.to_numeric(metas.valor_meta, errors="coerce")
+    # O tipo é fixado em float: se todas as metas forem números inteiros, o
+    # to_numeric devolve int64, o Parquet sai INT64 e o Athena, que declara a
+    # coluna como double, recusa qualquer consulta que leia valor_meta.
+    f["valor_meta"] = pd.to_numeric(metas.valor_meta, errors="coerce").astype("float64")
     return f
 
 
